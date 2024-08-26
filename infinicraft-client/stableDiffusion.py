@@ -41,7 +41,7 @@ def texture(item_description: str):
         num_inference_steps=20,
     ).images[0]
     im = remove(im)
-    im = im.resize((16, 16)).convert("RGBA")
+    im = im.resize((16, 16), resample=Image.NEAREST).convert("RGBA")
     texture: list[int] = []
     for x in range(16):
         for y in range(16):
